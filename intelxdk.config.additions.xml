@@ -1,0 +1,6 @@
+<preference name="debuggable" value="true" />
+
+<!-- see http://plugins.cordova.io/#/package/org.apache.cordova.statusbar for details -->
+<preference name="StatusBarOverlaysWebView" value="false" />
+<preference name="StatusBarBackgroundColor" value="#000000" />
+<preference name="StatusBarStyle" value="lightcontent" />

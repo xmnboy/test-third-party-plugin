@@ -1,0 +1,208 @@
+{
+  "project": {
+    "projectSettingsVersion": "1.1",
+    "creationData": {
+      "type": "Import",
+      "src": "",
+      "projectGuid": "142cf96f-ba32-415b-93dc-bec10e6d3679",
+      "lastModifiedDate": 1405367789644,
+      "creationDate": 1394489018036
+    },
+    "sourceDirectory": "www",
+    "startFile": "index.html",
+    "projectFiles": {},
+    "projectDirectories": {},
+    "libraries": [
+      {
+        "name": "Cordova",
+        "version": "2.9.0",
+        "data": {
+          "default": true
+        }
+      },
+      {
+        "name": "intelXDK",
+        "version": "4.0.0",
+        "data": {
+          "default": true
+        }
+      }
+    ],
+    "serviceMethods": [],
+    "cordovaPluginsDirectory": "plugins",
+    "cordovaPlugins": [
+      {
+        "id": "org.apache.cordova.device",
+        "version": "0.2.10",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {}
+      },
+      {
+        "id": "org.apache.cordova.device-motion",
+        "version": "0.2.4",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {}
+      },
+      {
+        "id": "org.apache.cordova.device-orientation",
+        "version": "0.3.6",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {}
+      },
+      {
+        "id": "org.apache.cordova.statusbar",
+        "version": "",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {},
+        "custom": "true",
+        "name": "Cordova StatusBar Plugin",
+        "origin": "org.apache.cordova.statusbar",
+        "originType": "cordova.io"
+      },
+      {
+        "id": "intel.xdk.base",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {}
+      }
+    ],
+    "buildConfigurations": {
+      "Android": {
+        "platform_": "android",
+        "name_": "Android",
+        "preferences_": {
+          "android-targetedSdkVersion": "19",
+          "android-minSdkVersion": "10",
+          "android-signed": true
+        },
+        "isActive_": true,
+        "appName_": "Test Third Party Plugins",
+        "appID_": "com.xmnboy.testthirdpartyplugins.cordova",
+        "appAccess_": "*",
+        "icons_": [],
+        "splashes_": [
+          {
+            "relPath": "pkg/splash/splash_320x426_portrait.png",
+            "density": "ldpi",
+            "height": 426,
+            "width": 320
+          },
+          {
+            "relPath": "pkg/splash/splash_426x320_landscape.png",
+            "density": "ldpi",
+            "height": 320,
+            "width": 426
+          }
+        ],
+        "iosProvs_": [],
+        "addlPermissions_": "",
+        "excludedLibraries_": "",
+        "cordovaCLIVersion_": "3.3",
+        "crosswalkVersion_": "stable",
+        "appVersion_": "2014.07.11",
+        "runtime_": "Cordova 3.x",
+        "appDescription_": "Test use of third-party Cordova 3.x plugins with the Intel XDK.",
+        "appAuthor_": "Paul Fischer, Intel Corporation",
+        "appVersionCode_": "20140711"
+      },
+      "Android-Crosswalk": {
+        "platform_": "android",
+        "name_": "Android-Crosswalk",
+        "preferences_": {
+          "android-targetedSdkVersion": "19",
+          "android-minSdkVersion": "14",
+          "android-signed": true
+        },
+        "isActive_": true,
+        "appName_": "Test Third Party Plugins",
+        "appID_": "com.xmnboy.testthirdpartyplugins.crosswalk",
+        "appAccess_": "*",
+        "icons_": [],
+        "splashes_": [],
+        "iosProvs_": [],
+        "addlPermissions_": "",
+        "excludedLibraries_": "",
+        "cordovaCLIVersion_": "3.3",
+        "crosswalkVersion_": "stable",
+        "appVersion_": "2014.07.11",
+        "runtime_": "Crosswalk with Cordova 3.x",
+        "appDescription_": "Test use of third-party Cordova 3.x plugins with the Intel XDK.",
+        "appAuthor_": "Paul Fischer, Intel Corporation",
+        "appVersionCode_": "20140711"
+      },
+      "iOS": {
+        "platform_": "ios",
+        "name_": "iOS",
+        "preferences_": {
+          "exit-on-suspend": false,
+          "ios-target": "5",
+          "ios-configuration": "adhoc"
+        },
+        "isActive_": true,
+        "appName_": "Test Third Party Plugins",
+        "appID_": "com.xmnboy.testthirdpartyplugins.cordova",
+        "appAccess_": "*",
+        "icons_": [],
+        "splashes_": [],
+        "iosProvs_": [
+          {
+            "relPath": "Paul.mobileprovision",
+            "type": "adhoc"
+          }
+        ],
+        "addlPermissions_": "",
+        "excludedLibraries_": "",
+        "cordovaCLIVersion_": "3.3",
+        "crosswalkVersion_": "stable",
+        "appVersion_": "2014.07.11",
+        "runtime_": "Cordova 3.x",
+        "appDescription_": "Test use of third-party Cordova 3.x plugins with the Intel XDK.",
+        "appAuthor_": "Paul Fischer, Intel Corporation",
+        "appVersionCode_": "20140702"
+      },
+      "Windows8": {
+        "platform_": "windows8",
+        "name_": "Windows8",
+        "preferences_": {},
+        "isActive_": true,
+        "appName_": "Test Third Party Plugins",
+        "appID_": "com.xmnboy.testthirdpartyplugins.cordova",
+        "appAccess_": "*",
+        "icons_": [],
+        "splashes_": [],
+        "iosProvs_": [],
+        "addlPermissions_": "",
+        "excludedLibraries_": "",
+        "cordovaCLIVersion_": "3.3",
+        "crosswalkVersion_": "stable",
+        "appVersion_": "2014.07.11",
+        "runtime_": "Cordova 3.x",
+        "appDescription_": "Test use of third-party Cordova 3.x plugins with the Intel XDK.",
+        "appAuthor_": "Paul Fischer, Intel Corporation",
+        "appVersionCode_": "20140702"
+      },
+      "WindowsPhone8": {
+        "platform_": "wp8",
+        "name_": "WindowsPhone8",
+        "preferences_": {},
+        "isActive_": true,
+        "appName_": "test-third-party-plugin",
+        "appID_": "not.yet.specified",
+        "appAccess_": "*",
+        "icons_": [],
+        "splashes_": [],
+        "iosProvs_": [],
+        "addlPermissions_": "",
+        "excludedLibraries_": "",
+        "cordovaCLIVersion_": "3.3",
+        "crosswalkVersion_": "stable",
+        "appVersion_": "1.0.0.0",
+        "runtime_": "Cordova 3.x"
+      }
+    }
+  }
+}
