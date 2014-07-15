@@ -9,6 +9,7 @@
 /*jshint -W079 */
 /*global $:false, intel:false, app:false, dev:false */
 /*global myEventHandler:false, cordova:false, device:false */
+/*global idHello:false, idStatusBar:false, idFlashlight:false */
 
 
 
@@ -46,6 +47,8 @@ app.initApplication = function() {
     el.addEventListener("touchend",idHello,false) ;
     el = document.getElementById("id_btnStatusBar") ;
     el.addEventListener("touchend",idStatusBar,false) ;
+    el = document.getElementById("id_btnFlashlight") ;
+    el.addEventListener("touchend",idFlashlight,false) ;
 
     // after init is all done is a good time to remove our splash screen
 
