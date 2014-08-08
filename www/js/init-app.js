@@ -9,7 +9,7 @@
 /*jshint -W079 */
 /*global $:false, intel:false, app:false, dev:false */
 /*global myEventHandler:false, cordova:false, device:false */
-/*global idHello:false, idStatusBar:false, idFlashlight:false */
+/*global idHello:false, idStatusBar:false, idFlashlight:false, btnWiFi:false */
 
 
 
@@ -49,6 +49,8 @@ app.initApplication = function() {
     el.addEventListener("touchend",idStatusBar,false) ;
     el = document.getElementById("id_btnFlashlight") ;
     el.addEventListener("touchend",idFlashlight,false) ;
+    el = document.getElementById("id_btnWiFi") ;
+    el.addEventListener("touchend",btnWiFi,false) ;
 
     // after init is all done is a good time to remove our splash screen
 
@@ -102,6 +104,7 @@ app.initApplication = function() {
 
     console.log(fName, "exit") ;
 } ;
+document.addEventListener("appReady", app.initApplication, false) ;
 
 
 
@@ -153,7 +156,7 @@ app.hideSplashScreen = function() {
     var fName = "app.hideSplashScreen():" ;
     console.log(fName, "entry") ;
 
-    if( window.Cordova && navigator.splashscreen ) {            // Cordova API detected
+    if( navigator.splashscreen ) {                              // Cordova splashscreen API detected
         navigator.splashscreen.hide() ;
     }
     else if( window.intel && intel.xdk && intel.xdk.device ) {  // Intel XDK API detected

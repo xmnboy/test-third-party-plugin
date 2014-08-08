@@ -48,7 +48,7 @@ function idStatusBar() {
 
 
 
-// see https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin.git
+// see https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin
 
 function idFlashlight() {
     "use strict" ;
@@ -66,6 +66,23 @@ function idFlashlight() {
     }
     else {
         alert("Flashlight plugin is not available or is not supported on this device") ;
+    }
+    console.log(fName, "function exit") ;
+}
+
+
+// see https://github.com/nielsAD/cordova-wifiscanner
+
+function btnWiFi() {
+    "use strict" ;
+    var fName = "btnWifi():" ;
+    console.log(fName, "function entry") ;
+
+    if( navigator.wifi && navigator.wifi ) {
+        alert("navigator.wifi IS present") ;
+    }
+    else {
+        alert("navigator.wifi is NOT present") ;
     }
     console.log(fName, "function exit") ;
 }

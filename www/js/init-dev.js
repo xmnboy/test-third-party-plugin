@@ -62,9 +62,13 @@ dev.onDeviceReady = function() {
         dev.isDeviceReady.e_fnDeviceReady__ = dev.timeStamp() ;
     }
 
-    // TODO: change this to initiate a custom event called AppReady
+    // TODO: change this to initiate a custom event called appReady
     // All device initialization is done, call the main app init function...
-    app.initApplication() ;
+//    app.initApplication() ;
+    // Using deprecated custom events until I can confirm new method works in all webviews...
+    var evt = document.createEvent("Event") ;
+    evt.initEvent("appReady", false, false) ;
+    document.dispatchEvent(evt) ;
 
     console.log(fName, dev.isDeviceReady) ;     // NOTE: tests debug console.log redirector object formatting
     console.log(fName, "exit") ;
