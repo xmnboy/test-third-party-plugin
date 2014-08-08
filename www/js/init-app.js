@@ -104,7 +104,7 @@ app.initApplication = function() {
 
     console.log(fName, "exit") ;
 } ;
-document.addEventListener("appReady", app.initApplication, false) ;
+document.addEventListener("app.Ready", app.initApplication, false) ;
 
 
 
