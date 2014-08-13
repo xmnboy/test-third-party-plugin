@@ -40,17 +40,23 @@ app.initApplication = function() {
 
     // Initialize app event handlers.
     // TODO: configure to work with both touch and click events (mouse + touch)
+    // try http://msopentech.com/blog/2013/09/16/add-pinch-pointer-events-apache-cordova-phonegap-app/
 
-    var el, str ;
+    var el, str, evt ;
+
+    if( navigator.msPointerEnabled )    // if on a Windows 8 machine
+        evt = "click" ;
+    else
+        evt = "touchend" ;
 
     el = document.getElementById("id_btnHello") ;
-    el.addEventListener("touchend",idHello,false) ;
+    el.addEventListener(evt,idHello,false) ;
     el = document.getElementById("id_btnStatusBar") ;
-    el.addEventListener("touchend",idStatusBar,false) ;
+    el.addEventListener(evt,idStatusBar,false) ;
     el = document.getElementById("id_btnFlashlight") ;
-    el.addEventListener("touchend",idFlashlight,false) ;
+    el.addEventListener(evt,idFlashlight,false) ;
     el = document.getElementById("id_btnWiFi") ;
-    el.addEventListener("touchend",btnWiFi,false) ;
+    el.addEventListener(evt,btnWiFi,false) ;
 
     // after init is all done is a good time to remove our splash screen
 
