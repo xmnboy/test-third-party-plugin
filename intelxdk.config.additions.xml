@@ -6,4 +6,7 @@
 <preference name="StatusBarStyle" value="lightcontent" />
 
 <!-- -iOS --><intelxdk:plugin intelxdk:value="nl.nielsad.cordova.wifiscanner" />
+
 <!-- -Windows8 --><intelxdk:plugin intelxdk:value="nl.nielsad.cordova.wifiscanner" />
+<!-- -Windows8 --><intelxdk:plugin intelxdk:value="org.apache.cordova.statusbar" />
+<!-- -Windows8 --><intelxdk:plugin intelxdk:value="https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin" />

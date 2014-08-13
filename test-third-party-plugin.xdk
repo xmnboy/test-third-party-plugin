@@ -5,7 +5,7 @@
       "type": "Import",
       "src": "",
       "projectGuid": "142cf96f-ba32-415b-93dc-bec10e6d3679",
-      "lastModifiedDate": 1405367789644,
+      "lastModifiedDate": 1407888698770,
       "creationDate": 1394489018036
     },
     "sourceDirectory": "www",
@@ -39,20 +39,6 @@
         "paramvals": {}
       },
       {
-        "id": "org.apache.cordova.device-motion",
-        "version": "0.2.4",
-        "selectedState": "Included",
-        "data": {},
-        "paramvals": {}
-      },
-      {
-        "id": "org.apache.cordova.device-orientation",
-        "version": "0.3.6",
-        "selectedState": "Included",
-        "data": {},
-        "paramvals": {}
-      },
-      {
         "id": "org.apache.cordova.statusbar",
         "version": "",
         "selectedState": "Included",
@@ -68,6 +54,63 @@
         "selectedState": "Included",
         "data": {},
         "paramvals": {}
+      },
+      {
+        "id": "org.apache.cordova.splashscreen",
+        "version": "0.2.5",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {}
+      },
+      {
+        "id": "org.apache.cordova.device-motion",
+        "version": "0.2.4",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {}
+      },
+      {
+        "id": "org.apache.cordova.device-orientation",
+        "version": "0.3.6",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {}
+      },
+      {
+        "id": "org.apache.cordova.media",
+        "version": "0.2.8",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {}
+      },
+      {
+        "id": "nl.nielsad.cordova.wifiscanner",
+        "version": "",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {},
+        "custom": "true",
+        "name": "Cordova WiFi Scanner",
+        "origin": "nl.nielsad.cordova.wifiscanner",
+        "originType": "cordova.io"
+      },
+      {
+        "id": "org.apache.cordova.geolocation",
+        "version": "",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {}
+      },
+      {
+        "id": "nl.x-services.plugins.flashlight",
+        "version": "",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {},
+        "custom": "true",
+        "name": "Cordova Flashlight Plugin",
+        "origin": "https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin",
+        "originType": "repo"
       }
     ],
     "buildConfigurations": {
@@ -103,11 +146,11 @@
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
-        "appVersion_": "2014.07.11",
+        "appVersion_": "14.9.12",
         "runtime_": "Cordova 3.x",
         "appDescription_": "Test use of third-party Cordova 3.x plugins with the Intel XDK.",
         "appAuthor_": "Paul Fischer, Intel Corporation",
-        "appVersionCode_": "20140711"
+        "appVersionCode_": "140912"
       },
       "Android-Crosswalk": {
         "platform_": "android",
@@ -128,11 +171,11 @@
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
-        "appVersion_": "2014.07.11",
+        "appVersion_": "14.9.12",
         "runtime_": "Crosswalk with Cordova 3.x",
         "appDescription_": "Test use of third-party Cordova 3.x plugins with the Intel XDK.",
         "appAuthor_": "Paul Fischer, Intel Corporation",
-        "appVersionCode_": "20140711"
+        "appVersionCode_": "140912"
       },
       "iOS": {
         "platform_": "ios",
@@ -148,17 +191,12 @@
         "appAccess_": "*",
         "icons_": [],
         "splashes_": [],
-        "iosProvs_": [
-          {
-            "relPath": "Paul.mobileprovision",
-            "type": "adhoc"
-          }
-        ],
+        "iosProvs_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
-        "appVersion_": "2014.07.11",
+        "appVersion_": "14.9.12",
         "runtime_": "Cordova 3.x",
         "appDescription_": "Test use of third-party Cordova 3.x plugins with the Intel XDK.",
         "appAuthor_": "Paul Fischer, Intel Corporation",
@@ -167,7 +205,7 @@
       "Windows8": {
         "platform_": "windows8",
         "name_": "Windows8",
-        "preferences_": {},
+        "preferences_": {}, 
         "isActive_": true,
         "appName_": "Test Third Party Plugins",
         "appID_": "com.xmnboy.testthirdpartyplugins.cordova",
@@ -179,7 +217,7 @@
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
-        "appVersion_": "2014.07.11",
+        "appVersion_": "14.9.12",
         "runtime_": "Cordova 3.x",
         "appDescription_": "Test use of third-party Cordova 3.x plugins with the Intel XDK.",
         "appAuthor_": "Paul Fischer, Intel Corporation",
