@@ -1,25 +1,50 @@
 /*
  * Copyright (c) 2013-2014, Paul Fischer, Intel Corporation. All rights reserved.
- * Please see http://software.intel.com/html5/license/samples
- * and the included README.md file for license terms and conditions.
+ * Please see http://software.intel.com/html5/license/samples for license terms and conditions.
+ */
+
+
+/*
+ * The functions in this file are designed to reliably detect various "ready" events
+ * within a variety of containers (Intel XDK "legacy" container, Cordova 3.x container,
+ * standard browser, App Preview, Crosswalk, etc.). It "unifies" the commonly used
+ * ready events and is very helpful for moving a "web app" to a "hybrid app" scenario.
+ *
+ * This file has no dependencies. It will generate a custom "app.Ready" event
+ * that you should use once to start your application, rather than waiting on a
+ * "device ready" or "document ready" or "window load" or similar events.
+ *
+ * You should not have to modify anything in this file to use it. See the example
+ * index.html file that accompanies this file (in its sample repo location) for
+ * recommendations on the best placement of this file relative to other files and
+ * for recommendations regarding the loading of other JavaScript files.
+ *
+ * There are a large number of console.log messages contained within this file.
+ * They can be used to debug initialization problems and understand how it works.
+ * It is highly recommended that you leave them in your app, they will not unduly
+ * slow down or burden your application.
+ *
+ * There are many comments in this file and the accompanying index.html file.
+ * Please read the comments within for details and further documentation.
+ *
+ * BTW: "dev" means "device" in this context, not "develop," because it grew out
+ * a desire to build a more reliable and flexible "device ready" detector.
  */
 
 
 /*jslint browser:true, devel:true, white:true, vars:true */
-/*jshint -W079 */
-/*global $:false, intel:false, app:false, dev:false */
-/*global dev:false, performance:false */
+/*global $:false, intel:false, dev:false, performance:false */
 
 
 
-var dev = dev || {} ;
+window.dev = window.dev || {} ;         // there should only be one of these, but...
 
 // Use performance counter if it is available, otherwise, use milliseconds since 1970
 
 if( window.performance && performance.now ) {
     dev.timeStamp = function() { return performance.now().toFixed(3) ; } ;
 } else {
-    dev.timeStart = Date.now() ;        // feeble zero point for relative time in ms
+    dev.timeStart = Date.now() ;        // feeble zero ref for relative time in ms
     dev.timeStamp = function() { return (Date.now() - dev.timeStart) ; } ;
 }
 
@@ -33,7 +58,7 @@ if( window.performance && performance.now ) {
 
 dev.INSURANCE = 250 ;                   // ms, insurance on registering ready events detected
 dev.WINDOW_LOAD = 500 ;                 // ms, for combating premature window load events
-dev.BROWSER = 7000 ;                    // ms, must be in a browser (probably best at >5 seconds)
+dev.BROWSER = 7000 ;                    // ms, detecting in a browser (probably best at >5 seconds)
 dev.FAIL_SAFE = 10000 ;                 // ms, if all else fails, this saves our bacon :-)
 
 
@@ -217,5 +242,5 @@ if( document.readyState ) {                     // some devices don't support th
     } ;
 }
 console.log("addEventListener:", dev.timeStamp()) ;
-window.addEventListener("load", window.setTimeout(dev.initDeviceReady,dev.WINDOW_LOAD), false) ;
+window.addEventListener("load", function(){window.setTimeout(dev.initDeviceReady,dev.WINDOW_LOAD);}.bind(dev), false) ;
 window.setTimeout(dev.initDeviceReady, dev.FAIL_SAFE) ;     // fail-safe fail-safe, just in case we miss all events!
