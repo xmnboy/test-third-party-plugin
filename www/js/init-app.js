@@ -63,7 +63,7 @@ app.initEvents = function() {
     // and do this if you disabled App Framework autolaunch (e.g., in index.html)
     // $.ui.launch() ;
 
-    app.showDeviceReady() ;                 // this is specific to this demo
+    app.hideSplashScreen() ;                // remove the splashscreen
 
     // ...and whatever else you want to do now that the app has started...
 
