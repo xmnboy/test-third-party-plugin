@@ -6,18 +6,17 @@
 
 
 /*jslint browser:true, devel:true, white:true, vars:true */
-/*jshint -W079 */
 /*global $:false, intel:false, app:false, dev:false */
 /*global myEventHandler:false, cordova:false, device:false */
-/*global idHello:false, idStatusBar:false, idFlashlight:false, btnWiFi:false */
+/*global idHello:false, idStatusBar:false, idFlashlight:false, idWiFi:false */
 
 
 
-var app = app || {} ;
+window.app = window.app || {} ;
 
-app.initApplication = function() {
+app.initEvents = function() {
     "use strict" ;
-    var fName = "app.initApplication():" ;
+    var fName = "app.initEvents():" ;
     console.log(fName, "entry") ;
 
 // Main app starting point (what dev.onDeviceReady calls after system is ready).
@@ -42,7 +41,7 @@ app.initApplication = function() {
     // TODO: configure to work with both touch and click events (mouse + touch)
     // try http://msopentech.com/blog/2013/09/16/add-pinch-pointer-events-apache-cordova-phonegap-app/
 
-    var el, str, evt ;
+    var el, evt ;
 
     if( navigator.msPointerEnabled )    // if on a Windows 8 machine
         evt = "click" ;
@@ -50,27 +49,78 @@ app.initApplication = function() {
         evt = "touchend" ;
 
     el = document.getElementById("id_btnHello") ;
-    el.addEventListener(evt,idHello,false) ;
+    el.addEventListener(evt, idHello, false) ;
     el = document.getElementById("id_btnStatusBar") ;
-    el.addEventListener(evt,idStatusBar,false) ;
+    el.addEventListener(evt, idStatusBar, false) ;
     el = document.getElementById("id_btnFlashlight") ;
-    el.addEventListener(evt,idFlashlight,false) ;
+    el.addEventListener(evt, idFlashlight, false) ;
     el = document.getElementById("id_btnWiFi") ;
-    el.addEventListener(evt,btnWiFi,false) ;
+    el.addEventListener(evt, idWiFi, false) ;
 
     // after init is all done is a good time to remove our splash screen
 
     // see https://github.com/01org/appframework/blob/master/documentation/detail/%24.ui.launch.md
-    // do this if you disabled App Framework autolaunch (in index.html, for example)
+    // and do this if you disabled App Framework autolaunch (e.g., in index.html)
     // $.ui.launch() ;
 
     app.showDeviceReady() ;                 // this is specific to this demo
-    app.hideSplashScreen() ;                // this is optional for your app
 
     // ...and whatever else you want to do now that the app has started...
 
-    el = document.getElementById("id_textArea") ;                   // print some interesting junk
-    el.innerHTML = JSON.stringify(dev.isDeviceReady, null, 1) ;     // to the <textarea> tag
+    // app initialization is done
+    // app event handlers are ready
+    // exit to idle state and just wait for events...
+
+    console.log(fName, "exit") ;
+} ;
+document.addEventListener("app.Ready", app.initEvents, false) ;
+
+
+
+// Primarily for demonstration and debug.
+
+app.initDebug = function() {
+    var fName = "app.initDebug():" ;
+    console.log(fName, "entry") ;
+
+    var el, str ;
+
+    // Update our status in the main view.
+    // Are we running in a hybrid container or a browser?
+    // find the "system ready" indicator on our display
+
+    el = document.getElementById("id_cordova") ;
+    var parentElement = document.getElementById("id_deviceReady") ;
+    var listeningElement = parentElement.querySelector('.listening') ;
+    var receivedElement = parentElement.querySelector('.received') ;
+    var failedElement = parentElement.querySelector('.failed') ;
+
+    // set the "system ready" indicator on our display
+
+    if( window.Cordova && dev.isDeviceReady.c_cordova_ready__) {
+        el.innerHTML = "Cordova device ready detected!" ;
+        listeningElement.setAttribute('style', 'display:none;') ;
+        receivedElement.setAttribute('style', 'display:block;') ;
+        failedElement.setAttribute('style', 'display:none;') ;
+    }
+    else if( window.intel && intel.xdk && dev.isDeviceReady.d_xdk_ready______ ) {
+        el.innerHTML = "Intel XDK device ready detected!" ;
+        listeningElement.setAttribute('style', 'display:none;') ;
+        receivedElement.setAttribute('style', 'display:block;') ;
+        failedElement.setAttribute('style', 'display:none;') ;
+    }
+    else {
+        el.innerHTML = "Bad device ready event or in a browser..." ;
+        listeningElement.setAttribute('style', 'display:none;') ;
+        receivedElement.setAttribute('style', 'display:none;') ;
+        failedElement.setAttribute('style', 'display:block;') ;
+    }
+
+
+    // and now, print some useful bits to the <textarea> tag
+
+    el = document.getElementById("id_textArea") ;
+    el.innerHTML = JSON.stringify(dev.isDeviceReady, null, 1) ;
     el.appendChild(document.createTextNode("\n")) ;
 
     if( window.device && device.cordova ) {                         // old Cordova 2.x version detection
@@ -104,54 +154,9 @@ app.initApplication = function() {
     console.log(str) ;                                              // ...to the console and
     el.appendChild(document.createTextNode(str + "\n")) ;           // ...to the <textarea> tag
 
-    // app initialization is done
-    // app event handlers are ready
-    // exit to idle state and just wait for events...
-
     console.log(fName, "exit") ;
 } ;
-document.addEventListener("app.Ready", app.initApplication, false) ;
-
-
-
-// Primarily for demonstration.
-// Update our status in the main view.
-// Are we running in a hybrid container or a browser?
-
-app.showDeviceReady = function() {
-    var fName = "app.showDeviceReady():" ;
-    console.log(fName, "entry") ;
-
-    // Following is for demonstration.
-    // find the "system ready" indicator on our display
-    var el = document.getElementById("id_cordova") ;
-    var parentElement = document.getElementById("id_deviceReady") ;
-    var listeningElement = parentElement.querySelector('.listening') ;
-    var receivedElement = parentElement.querySelector('.received') ;
-    var failedElement = parentElement.querySelector('.failed') ;
-
-    // set the "system ready" indicator on our display
-    if( window.Cordova && dev.isDeviceReady.c_cordova_ready__) {
-        el.innerHTML = "Cordova device ready detected!" ;
-        listeningElement.setAttribute('style', 'display:none;') ;
-        receivedElement.setAttribute('style', 'display:block;') ;
-        failedElement.setAttribute('style', 'display:none;') ;
-    }
-    else if( window.intel && intel.xdk && dev.isDeviceReady.d_xdk_ready______ ) {
-        el.innerHTML = "Intel XDK device ready detected!" ;
-        listeningElement.setAttribute('style', 'display:none;') ;
-        receivedElement.setAttribute('style', 'display:block;') ;
-        failedElement.setAttribute('style', 'display:none;') ;
-    }
-    else {
-        el.innerHTML = "Bad device ready event or in a browser..." ;
-        listeningElement.setAttribute('style', 'display:none;') ;
-        receivedElement.setAttribute('style', 'display:none;') ;
-        failedElement.setAttribute('style', 'display:block;') ;
-    }
-
-    console.log(fName, "exit") ;
-} ;
+document.addEventListener("app.Ready", app.initDebug, false) ;
 
 
 

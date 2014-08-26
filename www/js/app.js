@@ -73,9 +73,9 @@ function idFlashlight() {
 
 // see https://github.com/nielsAD/cordova-wifiscanner
 
-function btnWiFi() {
+function idWiFi() {
     "use strict" ;
-    var fName = "btnWifi():" ;
+    var fName = "idWifi():" ;
     console.log(fName, "function entry") ;
 
     if( navigator.wifi && navigator.wifi ) {
