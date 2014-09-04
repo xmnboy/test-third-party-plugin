@@ -17,14 +17,14 @@
 
 
 
-function idHello() {
+function idInstructions() {
     "use strict" ;
-    var fName = "idHello():" ;
+    var fName = "idInstructions():" ;
     console.log(fName, "function entry") ;
 
-    var str = "This app is running. :-)" ;
+    var str = "Congratulations! This app is running. :-) 'Statusbar' button should toggle hide/show state of device statusbar. 'Flashlight' button should illuminate camera LED (if a camera LED exists). 'Wifi' button indicates presence of wifi data plugin." ;
     if( navigator.notification && navigator.notification.alert )
-        navigator.notification.alert(str, function(){}, "Congratulations!" ) ;
+        navigator.notification.alert(str, function(){}, "Instructions", "Okay, Got It" ) ;
     else
         alert(str) ;
 
@@ -46,12 +46,6 @@ function idStatusBar() {
             StatusBar.hide() ;
         else
             StatusBar.show() ;
-
-        str = "StatusBar plugin is present, status bar should toggle." ;
-        if( navigator.notification && navigator.notification.alert )
-            navigator.notification.alert(str, function(){}, "StatusBar" ) ;
-        else
-            alert(str) ;
     }
     else {
         str = "StatusBar plugin is not available or is not supported on this device." ;
@@ -72,21 +66,26 @@ function idFlashlight() {
     var fName = "idFlashlight():" ;
     console.log(fName, "function entry") ;
 
+    function flashlightOff() {                      // for manual release of LED
+        window.plugins.flashlight.switchOff() ;     // success/error callbacks may be passed
+    }
+
     var str = "" ;
     if( window.plugins && plugins.flashlight ) {
 
         // switch on
         window.plugins.flashlight.switchOn() ;      // success/error callbacks may be passed
 
-        setTimeout(function() {                     // switch off after two seconds
-            window.plugins.flashlight.switchOff() ; // success/error callbacks may be passed
-        }, 2000) ;
-
-        str = "Flashlight plugin is present, light should go on for two seconds." ;
+        str = "Flashlight plugin is present, camera LED should illuminate (if present)." ;
         if( navigator.notification && navigator.notification.alert )
-            navigator.notification.alert(str, function(){}, "Flashlight" ) ;
-        else
+            navigator.notification.alert(str, flashlightOff, "Flashlight has been lit.", "Turn Off" ) ;
+        else {
+            str = "Flashlight plugin is present, camera LED should illuminate (if present) for two seconds." ;
             alert(str) ;
+            setTimeout(function() {                     // switch off after two seconds
+                window.plugins.flashlight.switchOff() ; // success/error callbacks may be passed
+            }, 2000) ;
+        }
     }
     else {
         str = "Flashlight plugin is not available or is not supported on this device." ;

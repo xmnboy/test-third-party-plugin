@@ -5,7 +5,7 @@
       "type": "Import",
       "src": "",
       "projectGuid": "142cf96f-ba32-415b-93dc-bec10e6d3679",
-      "lastModifiedDate": 1409847561971,
+      "lastModifiedDate": 1409850899153,
       "creationDate": 1394489018036
     },
     "sourceDirectory": "www",
@@ -178,7 +178,7 @@
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.3",
-        "crosswalkVersion_": "beta",
+        "crosswalkVersion_": "stable",
         "appVersion_": "14.9.4",
         "appDescription_": "Test use of third-party Cordova 3.x plugins with the Intel XDK.",
         "appAuthor_": "Paul Fischer, Intel Corporation",

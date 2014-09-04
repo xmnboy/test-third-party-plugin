@@ -8,7 +8,7 @@
 /*jslint browser:true, devel:true, white:true, vars:true */
 /*global $:false, intel:false, app:false, dev:false */
 /*global myEventHandler:false, cordova:false, device:false */
-/*global idHello:false, idStatusBar:false, idFlashlight:false, idWiFi:false */
+/*global idInstructions:false, idStatusBar:false, idFlashlight:false, idWiFi:false */
 
 
 
@@ -48,8 +48,8 @@ app.initEvents = function() {
     else
         evt = "touchend" ;
 
-    el = document.getElementById("id_btnHello") ;
-    el.addEventListener(evt, idHello, false) ;
+    el = document.getElementById("id_btnInstructions") ;
+    el.addEventListener(evt, idInstructions, false) ;
     el = document.getElementById("id_btnStatusBar") ;
     el.addEventListener(evt, idStatusBar, false) ;
     el = document.getElementById("id_btnFlashlight") ;
