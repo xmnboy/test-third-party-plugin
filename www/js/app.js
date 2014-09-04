@@ -12,6 +12,8 @@
 
 
 // This file contains your event handlers, the center of your application.
+// In a real app you probably would want to remove the console.log msgs
+// from your main app code to avoid any buffer overflow issues.
 
 
 
@@ -20,7 +22,11 @@ function idHello() {
     var fName = "idHello():" ;
     console.log(fName, "function entry") ;
 
-    alert("It worked!") ;
+    var str = "This app is running. :-)" ;
+    if( navigator.notification && navigator.notification.alert )
+        navigator.notification.alert(str, function(){}, "Congratulations!" ) ;
+    else
+        alert(str) ;
 
     console.log(fName, "function exit") ;
 }
@@ -34,14 +40,25 @@ function idStatusBar() {
     var fName = "idStatusBar():" ;
     console.log(fName, "function entry") ;
 
+    var str = "" ;
     if( window.StatusBar ) {
         if( StatusBar.isVisible )
             StatusBar.hide() ;
         else
             StatusBar.show() ;
+
+        str = "StatusBar plugin is present, status bar should toggle." ;
+        if( navigator.notification && navigator.notification.alert )
+            navigator.notification.alert(str, function(){}, "StatusBar" ) ;
+        else
+            alert(str) ;
     }
     else {
-        alert("StatusBar plugin is not available or is not supported on this device") ;
+        str = "StatusBar plugin is not available or is not supported on this device." ;
+        if( navigator.notification && navigator.notification.alert )
+            navigator.notification.alert(str, function(){}, "StatusBar" ) ;
+        else
+            alert(str) ;
     }
     console.log(fName, "function exit") ;
 }
@@ -55,17 +72,28 @@ function idFlashlight() {
     var fName = "idFlashlight():" ;
     console.log(fName, "function entry") ;
 
+    var str = "" ;
     if( window.plugins && plugins.flashlight ) {
 
         // switch on
         window.plugins.flashlight.switchOn() ;      // success/error callbacks may be passed
 
-        setTimeout(function() {                     // switch off after one second
+        setTimeout(function() {                     // switch off after two seconds
             window.plugins.flashlight.switchOff() ; // success/error callbacks may be passed
-        }, 1000) ;
+        }, 2000) ;
+
+        str = "Flashlight plugin is present, light should go on for two seconds." ;
+        if( navigator.notification && navigator.notification.alert )
+            navigator.notification.alert(str, function(){}, "Flashlight" ) ;
+        else
+            alert(str) ;
     }
     else {
-        alert("Flashlight plugin is not available or is not supported on this device") ;
+        str = "Flashlight plugin is not available or is not supported on this device." ;
+        if( navigator.notification && navigator.notification.alert )
+            navigator.notification.alert(str, function(){}, "Flashlight" ) ;
+        else
+            alert(str) ;
     }
     console.log(fName, "function exit") ;
 }
@@ -78,11 +106,20 @@ function idWiFi() {
     var fName = "idWifi():" ;
     console.log(fName, "function entry") ;
 
-    if( navigator.wifi && navigator.wifi ) {
-        alert("navigator.wifi IS present") ;
+    var str = "" ;
+    if( navigator.wifi ) {
+        str = "navigator.wifi plugin IS present." ;
+        if( navigator.notification && navigator.notification.alert )
+            navigator.notification.alert(str, function(){}, "WiFi" ) ;
+        else
+            alert(str) ;
     }
     else {
-        alert("navigator.wifi is NOT present") ;
+        str = "navigator.wifi plugin IS NOT present." ;
+        if( navigator.notification && navigator.notification.alert )
+            navigator.notification.alert(str, function(){}, "WiFi" ) ;
+        else
+            alert(str) ;
     }
     console.log(fName, "function exit") ;
 }
