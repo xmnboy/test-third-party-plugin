@@ -5,7 +5,7 @@
       "type": "Import",
       "src": "",
       "projectGuid": "142cf96f-ba32-415b-93dc-bec10e6d3679",
-      "lastModifiedDate": 1409004737103,
+      "lastModifiedDate": 1409847561971,
       "creationDate": 1394489018036
     },
     "sourceDirectory": "www",
@@ -111,6 +111,13 @@
         "name": "Cordova Flashlight Plugin",
         "origin": "https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin",
         "originType": "repo"
+      },
+      {
+        "id": "org.apache.cordova.dialogs",
+        "version": "0.2.5",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {}
       }
     ],
     "buildConfigurations": {
@@ -147,10 +154,10 @@
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
-        "appVersion_": "14.8.25",
+        "appVersion_": "14.9.4",
         "appDescription_": "Test use of third-party Cordova 3.x plugins with the Intel XDK.",
         "appAuthor_": "Paul Fischer, Intel Corporation",
-        "appVersionCode_": "140825"
+        "appVersionCode_": "140904"
       },
       "Android-Crosswalk": {
         "platform_": "android",
@@ -171,11 +178,11 @@
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.3",
-        "crosswalkVersion_": "stable",
-        "appVersion_": "14.8.25",
+        "crosswalkVersion_": "beta",
+        "appVersion_": "14.9.4",
         "appDescription_": "Test use of third-party Cordova 3.x plugins with the Intel XDK.",
         "appAuthor_": "Paul Fischer, Intel Corporation",
-        "appVersionCode_": "140825"
+        "appVersionCode_": "140904"
       },
       "iOS": {
         "platform_": "ios",
@@ -197,7 +204,7 @@
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
-        "appVersion_": "14.8.25",
+        "appVersion_": "14.9.4",
         "appDescription_": "Test use of third-party Cordova 3.x plugins with the Intel XDK.",
         "appAuthor_": "Paul Fischer, Intel Corporation",
         "appVersionCode_": "20140702"
@@ -218,7 +225,7 @@
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
-        "appVersion_": "14.8.25",
+        "appVersion_": "14.9.4",
         "appDescription_": "Test use of third-party Cordova 3.x plugins with the Intel XDK.",
         "appAuthor_": "Paul Fischer, Intel Corporation",
         "appVersionCode_": "20140702"
